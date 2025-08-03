@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS jokes (
+  id SERIAL PRIMARY KEY,
+  type VARCHAR(50),
+  setup TEXT NOT NULL,
+  punchline TEXT NOT NULL
+);
