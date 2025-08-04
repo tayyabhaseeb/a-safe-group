@@ -1,6 +1,8 @@
 const express = require("express");
 const cors = require("cors");
 const jokeRoutes = require("./Routers/jokeRoutes");
+const { customErrorHandler } = require("./errors/errors");
+
 require("dotenv").config();
 
 const app = express();
@@ -15,5 +17,11 @@ if (require.main === module) {
     console.log(`Server is running on http://localhost:${PORT}`);
   });
 }
+
+app.use((req, res, next) => {
+  res.status(404).json({ msg: "Not found" });
+});
+
+app.use(customErrorHandler);
 
 module.exports = app;

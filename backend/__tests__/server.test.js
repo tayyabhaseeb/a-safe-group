@@ -27,6 +27,12 @@ describe("GET /api/joke", () => {
     const res = await request(app).get("/api/not-a-real-endpoint");
     expect(res.statusCode).toBe(404);
   });
+
+  it("GET /api should return 404 with custom message", async () => {
+    const res = await request(app).get("/api");
+    expect(res.statusCode).toBe(404);
+    expect(res.body).toEqual({ msg: "Not found" });
+  });
 });
 
 afterAll(async () => {
