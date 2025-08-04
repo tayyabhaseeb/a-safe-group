@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Button from "./Button";
+import { callAPI } from "../../utils";
 
 function Card() {
   const [setup, setSetup] = useState("");
@@ -7,25 +8,21 @@ function Card() {
   const [showPunchline, setShowPunchLine] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:3001/api/joke")
-      .then((res) => res.json())
-      .then((data) => {
-        setSetup(data.setup);
-        setPunchLine(data.punchline);
-      });
+    callAPI().then((data) => {
+      setSetup(data.setup);
+      setPunchLine(data.punchline);
+    });
   }, []);
 
   const handleClick = () => {
     if (!showPunchline) {
       setShowPunchLine(true);
     } else {
-      fetch("http://localhost:3001/api/joke")
-        .then((res) => res.json())
-        .then((data) => {
-          setSetup(data.setup);
-          setPunchLine(data.punchline);
-          setShowPunchLine(false);
-        });
+      callAPI().then((data) => {
+        setSetup(data.setup);
+        setPunchLine(data.punchline);
+        setShowPunchLine(false);
+      });
     }
   };
 
