@@ -1,14 +1,23 @@
 const { getJokeCount, getRandomJoke } = require("../Models/jokeModel");
+const { CustomError } = require("../errors/CustomError");
 
-async function fetchRandomJoke(req, res) {
+async function fetchRandomJoke(req, res, next) {
   try {
     const count = await getJokeCount();
+    if (count === 0) {
+      throw new CustomError("No jokes found in the database", 404);
+    }
+
     const offset = Math.floor(Math.random() * count);
     const joke = await getRandomJoke(offset);
-    res.json(joke);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "Failed to fetch joke" });
+
+    if (!joke) {
+      throw new CustomError("Could not get any joke", 500);
+    }
+
+    res.status(200).json(joke);
+  } catch (err) {
+    next(err);
   }
 }
 
