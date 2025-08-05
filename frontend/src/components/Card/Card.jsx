@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Button from "./Button";
-import { callAPI } from "../../utils";
+import Button from "../Button/Button";
+import { callAPI } from "../../../utils";
 
 function Card() {
   const [setup, setSetup] = useState("");
