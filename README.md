@@ -55,7 +55,7 @@ project-root/
 
 ```bash
 git clone https://github.com/tayyabhaseeb/a-safe-group
-cd A_safe_group
+cd a-safe-group
 ```
 
 2. ⚙️ Setup the Backend (API)
