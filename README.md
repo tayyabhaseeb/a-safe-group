@@ -4,7 +4,7 @@ This is what the project looks like on a mobile screen:
 
 ![Joke App UI](./frontend/public/images/mob-gen.png)
 
-🗃️ Joke App – Full Stack (Backend + Frontend)
+# 🗃️ Joke App – Full Stack (Backend + Frontend)
 
 A full-stack joke web application built with:
 
