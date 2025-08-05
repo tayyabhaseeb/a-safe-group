@@ -1,3 +1,5 @@
 export function callAPI() {
-  return fetch("http://localhost:3001/api/joke").then((res) => res.json());
+  return fetch(`${import.meta.env.VITE_API_URL}/api/joke`).then((res) =>
+    res.json()
+  );
 }
