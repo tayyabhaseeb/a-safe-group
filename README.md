@@ -20,8 +20,11 @@ Users can fetch a new random joke on every click. The backend handles data retri
 ## 📁 Project Structure
 
 project-root/
+
 ├── backend/ → Node.js + Express API
+
 ├── frontend/ → React + Vite + Tailwind app
+
 └── README.md → This file
 
 ---
